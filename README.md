@@ -1,45 +1,102 @@
 # Python Hesap Makinesi
 
-Bu proje, temel ve bilimsel hesaplamalar yapabilen, birim dönüşümleri sağlayan ve modüler yapıda geliştirilebilen bir Python uygulamasıdır. Kullanıcılar, menüden istedikleri özelliği seçerek işlemlerini gerçekleştirebilir. Bu hesap makinesi, farklı kategorilerdeki matematiksel işlemleri kolay ve hızlı bir şekilde yapmanızı sağlar.
+Bu proje, **Python** kullanılarak geliştirilmiş kapsamlı bir hesap makinesi uygulamasıdır. Temel matematik işlemlerinden bilimsel hesaplamalara, birim dönüştürmelerden fonksiyon grafiklerine kadar geniş bir özellik yelpazesi sunar.
 
 ## Özellikler
-
-- **Temel Hesaplama:**
+- **Temel Hesaplama**:
   - Toplama, çıkarma, çarpma, bölme.
-  
-- **Bilimsel Hesaplama:**
-  - Trigonometrik işlemler (sinüs, kosinüs, tanjant).
-  - Logaritma hesaplama.
-  
-- **Birim Dönüştürme:**
-  - Uzunluk (kilometre ↔ mil, santimetre ↔ inç).
-  - Ağırlık (kilogram ↔ pound).
-  - Sıcaklık (Celsius ↔ Fahrenheit).
-  - Hacim (litre ↔ galon).
+- **Bilimsel Hesaplama**:
+  - Sinüs, kosinüs, tanjant, logaritma, faktöriyel ve karekök hesaplama.
+  - Matematiksel fonksiyonların grafiğini çizme.
+- **Birim Dönüştürme**:
+  - Kilometre ↔ Mil
+  - Celsius ↔ Fahrenheit
+  - Kilogram ↔ Pound
+  - Litre ↔ Galon
+  - Santimetre ↔ İnç
 
-- **Modüler Yapı:**
-  - Kod, üç farklı modül halinde düzenlenmiştir: **Calculator**, **Converter**, **ScientificCalculator**.
-  
-- **Kolay Genişletilebilirlik:**
-  - Yeni özellikler ve işlevler kolayca eklenebilir.
-  
-## Kullanım
+## Kurulum
 
-Uygulamayı çalıştırdıktan sonra ana menüden bir mod seçebilirsiniz. Seçenekler şunlardır:
-- **Temel Hesaplama:** Toplama, çıkarma, çarpma, bölme işlemleri.
-- **Bilimsel Hesaplama:** Sinüs, kosinüs, tanjant, logaritma.
-- **Birim Dönüştürme:** Uzunluk, ağırlık, sıcaklık ve hacim dönüşümleri.
+1. Bu projeyi klonlayın:
+   ```bash
+   git clone https://github.com/iamemirhancakir/PythonHesapMakinesi.git
 
-Her bir işlem için, ekranda belirtilen seçeneklere göre işlem yapabilirsiniz.
+2. Gerekli kütüphaneleri yükleyin
+   ```bash
+   pip install -r requirements.txt
+   pip install matplotlib
 
-## Gelecek Geliştirmeler
+ ## Kullanım
+ 1. Proje dizinine gidin
+  ```bash
+  cd hesapmakinesi
+  python main.py
+```
+2. Menü üzerinden istediğiniz işlemi seçin:
+- Temel Hesaplama
+- Bilimsel Hesaplama
+- Birim Dönüştürme
 
-- Daha fazla bilimsel hesaplama işlevi.
-- Grafik çizimi (matplotlib ile).
-- Para birimi dönüştürücü.
-- Sesli komut ile işlem yapma.
-- Kullanıcı geçmişi özelliği.
+ ## Proje Yapısı
+  ```plaintext
+hesapmakinesi/
+├── main.py                   # Ana uygulama dosyası
+├── calculator.py             # Temel hesaplama sınıfı
+├── scientific_calculator.py  # Bilimsel hesaplama sınıfı
+├── converter.py              # Birim dönüştürme sınıfı
+├── requirements.txt          # Gerekli kütüphaneler
+└── README.md                 # Proje açıklaması
+```
+## Örnek Kullanım
+
+### Temel Hesaplama
+  ```plaintext
+Ana Menü
+1. Temel Hesaplama
+2. Bilimsel Hesaplama
+3. Birim Dönüştürme
+0. Çıkış
+Bir mod seçin (0-3): 1
+
+Birinci sayıyı girin: 10
+İkinci sayıyı girin: 5
+İşlem türü seçin (+, -, *, /): +
+Sonuç: 15.0
+```
+
+### Grafik Çizimi
+- Bilimsel hesaplama menüsünde bir fonksiyon seçildiğinde, matplotlib kullanılarak grafiği çizilir.
+
+### Birim Dönüştürme
+  ```plaintext
+Birim Dönüştürücü
+1. Kilometre -> Mil
+2. Mil -> Kilometre
+Bir dönüşüm seçin (0-10): 1
+Kilometre girin: 5
+Sonuç: 3.11 mil
+```
 
 ## Katkıda Bulunma
+1. Bu projeyi forklayın.
+2. Yeni bir dal (branch) oluşturun
+  ```bash
+  git checkout -b yeni-ozellik
+```
+3. Değişikliklerinizi yapın ve commit edin
+  ```bash
+  git commit -m "Yeni özellik eklendi"
+```
+4. Dalınızı push edin
+  ```bash
+  git push origin yeni-ozellik
+```
+5. Pull Request oluşturun
 
-Eğer bu projeye katkıda bulunmak isterseniz, **pull request** göndererek değişikliklerinizi sunabilirsiniz. Her türlü öneri ve geri bildirim değerlidir.
+👨‍💻 Emirhan Çakır
+Bu proje, Python becerilerinizi geliştirmek ve kullanışlı bir araç sunmak için tasarlandı. Keyifli kodlamalar! 😊
+
+  
+
+
+
