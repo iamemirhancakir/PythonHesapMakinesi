@@ -15,6 +15,11 @@ def scientific_calculator_menu():
     print("2. Kosinüs")
     print("3. Tanjant")
     print("4. Logaritma")
+    print("5. Faktoriyel")
+    print("6. Karekök Hesaplama")
+    print("7. Sinüs Grafiği Çizme")
+    print("8. Kosinüs Grafiği Çizme")
+    print("9. Kullanıcı Tanımlı Fonksiyon Grafiği")
     print("0. Ana Menü")
 
 def unit_conversion_menu():
@@ -69,7 +74,7 @@ def main():
             # Bilimsel hesaplama
             while True:
                 scientific_calculator_menu()
-                sci_choice = input("Bir işlem seçin (0-4): ")
+                sci_choice = input("Bir işlem seçin (0-9): ")
 
                 if sci_choice == "0":
                     break
@@ -88,6 +93,16 @@ def main():
                         number = float(input("Logaritması alınacak sayıyı girin: "))
                         base = float(input("Tabanı girin (Varsayılan: 10): ") or 10)
                         print(f"Logaritma: {sci_calc.log(number, base):.2f}")
+                    elif sci_choice == "5":
+                        sci_calc.calculate_factorial()
+                    elif sci_choice == "6":
+                        sci_calc.calculate_square_root()
+                    elif sci_choice == "7":
+                        sci_calc.plot_sine_wave()
+                    elif sci_choice == "8":
+                        sci_calc.plot_cosine_wave()
+                    elif sci_choice == "9":
+                        sci_calc.plot_custom_function()
                     else:
                         print("Geçersiz seçim.")
                 except ValueError:
@@ -137,7 +152,6 @@ def main():
                         print("Geçersiz seçim.")
                 except ValueError:
                     print("Lütfen geçerli bir sayı girin.")
-
         else:
             print("Geçersiz seçim. Tekrar deneyin.")
 
