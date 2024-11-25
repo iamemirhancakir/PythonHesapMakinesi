@@ -1,12 +1,16 @@
+import numpy as np
+
 from calculator import Calculator
 from conventer import Converter
 from scientific_calculator import ScientificCalculator
+from matrixcalculator import MatrixCalculator
 
 def display_main_menu():
     print("\nAna Menü")
     print("1. Temel Hesaplama")
     print("2. Bilimsel Hesaplama")
     print("3. Birim Dönüştürme")
+    print("4. Matrix Hesaplama") # yeni özellik
     print("0. Çıkış")
 
 def scientific_calculator_menu():
@@ -36,14 +40,23 @@ def unit_conversion_menu():
     print("10. İnç -> Santimetre")
     print("0. Ana Menü")
 
+def matrix_calculator_menu():
+    print("\nMatris İşlemleri")
+    print("1. Matris Toplama")
+    print("2. Matris Çarpma")
+    print("3. Matris Determinantı")
+    print("4. Matris Transpoz")
+    print("0. Ana Menü")
+
 def main():
     calc = Calculator()
     converter = Converter()
     sci_calc = ScientificCalculator()
+    matrix_calc = MatrixCalculator()
 
     while True:
         display_main_menu()
-        choice = input("Bir mod seçin (0-3): ")
+        choice = input("Bir mod seçin (0-4): ")
 
         if choice == "0":
             print("Programdan çıkılıyor...")
@@ -152,6 +165,78 @@ def main():
                         print("Geçersiz seçim.")
                 except ValueError:
                     print("Lütfen geçerli bir sayı girin.")
+
+        elif choice == "4":
+            # Matris İşlemleri
+            while True:
+                matrix_calculator_menu()
+                matrix_choice = input("Bir işlem seçin (0-4): ")
+
+                if matrix_choice == "0":
+                    break
+
+                try:
+                    if matrix_choice == "1":
+                        rows = int(input("Matris satır sayısını girin: "))
+                        cols = int(input("Matris sütun sayısını girin: "))
+
+                        print("Birinci matris değerlerini girin (satır satır):")
+                        matrix1 = np.array([list(map(float, input().split())) for _ in range(rows)])
+
+                        print("İkinci matris değerlerini girin (satır satır):")
+                        matrix2 = np.array([list(map(float, input().split())) for _ in range(rows)])
+
+                        print(f"Matrix 1: {matrix1}")
+                        print(f"Matrix 2: {matrix2}")
+
+                        result = matrix_calc.add_matrices(matrix1, matrix2)
+                        print("Toplama sonucu:")
+                        print(result)
+
+
+                    elif matrix_choice == "2":
+                        rows1 = int(input("Birinci matris satır sayısını girin: "))
+                        cols1 = int(input("Birinci matris sütun sayısını girin: "))
+                        print("Birinci matris değerlerini girin (satır satır):")
+                        matrix1 = np.array([list(map(float, input().split())) for _ in range(rows1)])
+
+                        rows2 = int(input("İkinci matris satır sayısını girin: "))
+                        cols2 = int(input("İkinci matris sütun sayısını girin: "))
+                        print("İkinci matris değerlerini girin (satır satır):")
+                        matrix2 = np.array([list(map(float, input().split())) for _ in range(rows2)])
+
+                        if cols1 != rows2:
+                            print("Hata: Matris çarpımı için sütun ve satır sayıları uyumlu olmalıdır!")
+                        else:
+                            result = matrix_calc.multiply_matrices(matrix1, matrix2)
+                            print("Çarpma sonucu:")
+                            print(result)
+
+                    elif matrix_choice == "3":
+                        rows = int(input("Matris satır/sütun sayısını girin (kare matris): "))
+                        print("Matris değerlerini girin (satır satır):")
+                        matrix = np.array([list(map(float, input().split())) for _ in range(rows)])
+
+                        result = matrix_calc.determinant(matrix)
+                        print(f"Determinant: {result:.2f}")
+
+                    elif matrix_choice == "4":
+                        rows = int(input("Matris satır sayısını girin: "))
+                        cols = int(input("Matris sütun sayısını girin: "))
+                        print("Matris değerlerini girin (satır satır):")
+                        matrix = np.array([list(map(float, input().split())) for _ in range(rows)])
+
+                        result = matrix_calc.transpose(matrix)
+                        print("Transpoz sonucu:")
+                        print(result)
+
+                    else:
+                        print("Geçersiz seçim.")
+                except ValueError:
+                    print("Lütfen geçerli bir sayı girin.")
+                except Exception as e:
+                    print(f"Hata: {str(e)}")
+
         else:
             print("Geçersiz seçim. Tekrar deneyin.")
 
