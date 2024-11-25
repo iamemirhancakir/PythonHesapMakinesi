@@ -5,15 +5,23 @@ Bu proje, **Python** kullanılarak geliştirilmiş kapsamlı bir hesap makinesi 
 ## Özellikler
 - **Temel Hesaplama**:
   - Toplama, çıkarma, çarpma, bölme.
+  
 - **Bilimsel Hesaplama**:
   - Sinüs, kosinüs, tanjant, logaritma, faktöriyel ve karekök hesaplama.
   - Matematiksel fonksiyonların grafiğini çizme.
+  
 - **Birim Dönüştürme**:
   - Kilometre ↔ Mil
   - Celsius ↔ Fahrenheit
   - Kilogram ↔ Pound
   - Litre ↔ Galon
   - Santimetre ↔ İnç
+  
+- **Matris İşlemleri** *(Yeni Eklenen Özellik)*:  
+  - Matris Toplama  
+  - Matris Çarpma  
+  - Determinant Hesaplama  
+  - Matris Transpozu
 
 ## Kurulum
 
@@ -25,6 +33,7 @@ Bu proje, **Python** kullanılarak geliştirilmiş kapsamlı bir hesap makinesi 
    ```bash
    pip install -r requirements.txt
    pip install matplotlib
+   pip install numpy
 
  ## Kullanım
  1. Proje dizinine gidin
@@ -36,6 +45,7 @@ Bu proje, **Python** kullanılarak geliştirilmiş kapsamlı bir hesap makinesi 
 - Temel Hesaplama
 - Bilimsel Hesaplama
 - Birim Dönüştürme
+- Matris Hesaplama
 
  ## Proje Yapısı
   ```plaintext
@@ -44,6 +54,7 @@ hesapmakinesi/
 ├── calculator.py             # Temel hesaplama sınıfı
 ├── scientific_calculator.py  # Bilimsel hesaplama sınıfı
 ├── converter.py              # Birim dönüştürme sınıfı
+├── matrixcalculator.py       # Matrix hesaplama sınıfı
 ├── requirements.txt          # Gerekli kütüphaneler
 └── README.md                 # Proje açıklaması
 ```
@@ -55,8 +66,9 @@ Ana Menü
 1. Temel Hesaplama
 2. Bilimsel Hesaplama
 3. Birim Dönüştürme
+4. Matris Hesaplama
 0. Çıkış
-Bir mod seçin (0-3): 1
+Bir mod seçin (0-4): 1
 
 Birinci sayıyı girin: 10
 İkinci sayıyı girin: 5
@@ -75,6 +87,25 @@ Birim Dönüştürücü
 Bir dönüşüm seçin (0-10): 1
 Kilometre girin: 5
 Sonuç: 3.11 mil
+```
+
+### Örnek Matris İşlemi 
+  ```
+Matris satır sayısını girin: 2
+Matris sütun sayısını girin: 2
+Birinci matris değerlerini girin (satır satır):
+1 2
+3 4
+İkinci matris değerlerini girin (satır satır):
+1 2
+3 4
+Matrix 1: [[1. 2.]
+ [3. 4.]]
+Matrix 2: [[1. 2.]
+ [3. 4.]]
+Toplama sonucu:
+[[2. 4.]
+ [6. 8.]]
 ```
 
 ## Katkıda Bulunma
